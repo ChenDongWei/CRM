@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="trueName" column="trueName"/>
 		<result property="email" column="email"/>
 		<result property="phone" column="phone"/>
-		<result property="roleName" column="roleName"/>
+		<result property="roleType" column="roleType"/>
 	</resultMap>
 	
 	<select id="login" parameterType="User" resultMap="UserResult">
@@ -19,7 +19,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			u.userName = #{user.userName}
 			and u.password = #{user.password}
-			and u.roleName = #{user.roleName}
+			and u.roleType = #{user.roleType}
 		</where> 
+	</select>
+	
+	<select id="getUserList" parameterType="Map" resultMap="UserResult">
+		select u.*, r.roleName from t_user u left join t_role r on u.roleType = r.roleType
+		<where>
+			<if test="userName != null and userName != ''">
+				and userName = #{userName}
+			</if>
+			<if test="roleType != null and roleType != ''">
+				and roleType = #{roleType}
+			</if>
+		</where>
+		<if test="start != null and size != null">
+				limit #{start}, #{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" parameterType="Map" resultMap="Long">
+		select count(*) from t_user
+		<where>
+			<if test="userName != null and userName != ''">
+				and userName = #{userName}
+			</if>
+			<if test="roleType != null and roleType != ''">
+				and roleType = #{roleType}
+			</if>
+		</where>
 	</select>
 </mapper> 

@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private String trueName;// 真实姓名
 	private String email;// 邮箱
 	private String phone;// 电话
-	private String roleName;// 角色名称(管理员，销售主管，客户经理，高管)
+	private String roleType;// 角色(1-管理员，2-销售主管，3-客户经理，4-高管)
 
 	public Integer getId() {
 		return id;
@@ -67,12 +67,12 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getRoleName() {
-		return roleName;
+	public String getRoleType() {
+		return roleType;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
 	}
 
 }

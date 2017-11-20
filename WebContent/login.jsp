@@ -60,7 +60,7 @@ A:active {
 	function login(){
 		var userName=$("#userName").val();
 		var password=$("#password").val();
-		var roleName=$("#roleName").val();
+		var roleType=$("#roleType").val();
 		if(userName==null||userName==""){
 			alert("用户名不能为空！");
 			return;
@@ -69,7 +69,7 @@ A:active {
 			alert("密码不能为空！");
 			return;
 		}
-		if(roleName==null||roleName==""){
+		if(roleType==null||roleType==""){
 			alert("请选择用户类型！");
 			return;
 		}
@@ -108,12 +108,12 @@ A:active {
 					</TR>
 					<TR>
 						<td>
-							<select id="roleName" name="roleName" class="input" style="margin-top: 15px;height: 24px">
+							<select id="roleType" name="roleType" class="input" style="margin-top: 15px;height: 24px">
 								<option value="">请选择用户类型...</option>
-								<option value="系统管理员"  ${'系统管理员'==user.roleName?'selected':'' }>系统管理员</option>
-								<option value="销售主管"  ${'销售主管'==user.roleName?'selected':'' }>销售主管</option>
-								<option value="客户经理"  ${'客户经理'==user.roleName?'selected':'' }>客户经理</option>
-								<option value="高管"  ${'高管'==user.roleName?'selected':'' }>高管</option>
+								<option value="1"  ${'1'==user.roleType?'selected':'' }>系统管理员</option>
+								<option value="2"  ${'2'==user.roleType?'selected':'' }>销售主管</option>
+								<option value="3"  ${'3'==user.roleType?'selected':'' }>客户经理</option>
+								<option value="4"  ${'4'==user.roleType?'selected':'' }>高管</option>
 							</select>
 						</td>
 					</TR>
