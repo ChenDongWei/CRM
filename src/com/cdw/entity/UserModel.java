@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author dongwei
  * @date 2017年11月15日
  */
-public class User implements Serializable {
+public class UserModel implements Serializable {
 	private static final long serialVersionUID = 1856516507510488431L;
 
 	private Integer id;// 编号
@@ -18,6 +18,7 @@ public class User implements Serializable {
 	private String email;// 邮箱
 	private String phone;// 电话
 	private String roleType;// 角色(1-管理员，2-销售主管，3-客户经理，4-高管)
+	private String roleName;// 角色(1-管理员，2-销售主管，3-客户经理，4-高管)
 
 	public Integer getId() {
 		return id;
@@ -73,6 +74,14 @@ public class User implements Serializable {
 
 	public void setRoleType(String roleType) {
 		this.roleType = roleType;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 
 }

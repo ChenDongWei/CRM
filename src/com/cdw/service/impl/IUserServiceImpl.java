@@ -3,12 +3,15 @@ package com.cdw.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cdw.dao.UserDao;
-import com.cdw.entity.User;
+import com.cdw.entity.UserModel;
 import com.cdw.service.UserService;
 
 /**
@@ -19,21 +22,21 @@ import com.cdw.service.UserService;
 @Service("UserService")
 @Transactional
 public class IUserServiceImpl implements UserService {
-	@Autowired
+	@Resource
 	private UserDao userDao;
 
 	@Override
-	public User login(User user) {
+	public UserModel login(UserModel user) {
 		return userDao.login(user);
 	}
 
 	@Override
-	public List<User> getUserList(Map<String, Object> map) {
-		return userDao.getUserList(map);
+	public List<UserModel> getUserList(String userName, int start, int size) {
+		return userDao.getUserList(userName, start, size);
 	}
 
 	@Override
-	public Long getTotal(Map<String, Object> map) {
-		return userDao.getTotal(map);
+	public Long getTotal(String userName, int start, int size) {
+		return userDao.getTotal(userName, start, size);
 	}
 }

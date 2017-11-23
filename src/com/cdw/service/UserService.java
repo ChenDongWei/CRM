@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.cdw.entity.User;
+import com.cdw.entity.UserModel;
 
 /**
  * 用户service接口
@@ -18,19 +18,19 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User login(User user);
+	public UserModel login(UserModel user);
 	
 	/**
 	 * 查询用户列表数据
 	 * @param map
 	 * @return
 	 */
-	public List<User> getUserList(@Param("map")Map<String, Object> map);
+	public List<UserModel> getUserList(String userName, int start, int size);
 	
 	/**
 	 * 获取用户数据总数
 	 * @param map
 	 * @return
 	 */
-	public Long getTotal(@Param("map")Map<String, Object> map);
+	public Long getTotal(String userName, int start, int size);
 }
