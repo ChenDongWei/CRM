@@ -25,12 +25,33 @@ public interface UserService {
 	 * @param map
 	 * @return
 	 */
-	public List<UserModel> getUserList(String userName, int start, int size);
+	public List<UserModel> getUserList(String userName, String roleType, int start, int size);
 	
 	/**
 	 * 获取用户数据总数
 	 * @param map
 	 * @return
 	 */
-	public Long getTotal(String userName, int start, int size);
+	public Long getTotal(String userName, String roleType, int start, int size);
+	
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+	public int addUser(UserModel user);
+	
+	/**
+	 * 修改用户信息
+	 * @param user
+	 * @return
+	 */
+	public int updateUser(UserModel user);
+	
+	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
+	public int deleteUser(List<Integer> id);
 }

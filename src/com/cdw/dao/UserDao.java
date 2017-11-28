@@ -25,12 +25,33 @@ public interface UserDao {
 	 * @param map
 	 * @return
 	 */
-	public List<UserModel> getUserList(@Param("userName")String userName, @Param("start")int start, @Param("size")int size);
+	public List<UserModel> getUserList(@Param("userName")String userName, @Param("roleType")String roleType, @Param("start")int start, @Param("size")int size);
 	
 	/**
 	 * 获取用户数据总数
 	 * @param map
 	 * @return
 	 */
-	public Long getTotal(@Param("userName")String userName, @Param("start")int start, @Param("size")int size);
+	public Long getTotal(@Param("userName")String userName, @Param("roleType")String roleType, @Param("start")int start, @Param("size")int size);
+	
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+	public int addUser(@Param("user")UserModel user);
+	
+	/**
+	 * 修改用户信息
+	 * @param user
+	 * @return
+	 */
+	public int updateUser(@Param("user")UserModel user);
+	
+	/**
+	 * 删除用户
+	 * @param id
+	 * @return
+	 */
+	public int deleteUser(@Param("ids")List<Integer> ids);
 }

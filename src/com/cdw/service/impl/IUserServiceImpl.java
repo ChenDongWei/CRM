@@ -31,12 +31,27 @@ public class IUserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserModel> getUserList(String userName, int start, int size) {
-		return userDao.getUserList(userName, start, size);
+	public List<UserModel> getUserList(String userName, String roleType, int start, int size) {
+		return userDao.getUserList(userName, roleType, start, size);
 	}
 
 	@Override
-	public Long getTotal(String userName, int start, int size) {
-		return userDao.getTotal(userName, start, size);
+	public Long getTotal(String userName, String roleType, int start, int size) {
+		return userDao.getTotal(userName, roleType, start, size);
+	}
+
+	@Override
+	public int addUser(UserModel user) {
+		return userDao.addUser(user);
+	}
+
+	@Override
+	public int updateUser(UserModel user) {
+		return userDao.updateUser(user);
+	}
+
+	@Override
+	public int deleteUser(List<Integer> id) {
+		return userDao.deleteUser(id);
 	}
 }
